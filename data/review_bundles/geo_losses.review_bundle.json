@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "sciona.atoms.geo.review_bundle.losses.core.v1",
+  "provider_repo": "sciona-atoms-geo",
+  "family_batch": "geo_losses",
+  "review_status": "pending",
+  "review_semantic_verdict": null,
+  "review_developer_semantic_verdict": null,
+  "trust_readiness": "unreviewed",
+  "authoritative_sources": [
+    {
+      "kind": "local_wrapper",
+      "path": "src/sciona/atoms/geo/losses/atoms.py"
+    },
+    {
+      "kind": "local_wrapper",
+      "path": "src/sciona/atoms/geo/losses/atoms_torch.py"
+    },
+    {
+      "kind": "local_wrapper",
+      "path": "src/sciona/atoms/geo/losses/witnesses.py"
+    },
+    {
+      "kind": "local_references",
+      "path": "src/sciona/atoms/geo/losses/references.json"
+    },
+    {
+      "kind": "local_cdg",
+      "path": "src/sciona/atoms/geo/losses/cdg.json"
+    },
+    {
+      "kind": "local_test",
+      "path": "tests/test_geo_losses_behavior.py"
+    }
+  ],
+  "limitations": [],
+  "blocking_findings": [],
+  "required_actions": [],
+  "review_record_path": "data/review_bundles/geo_losses.review_bundle.json",
+  "rows": [
+    {
+      "atom_key": "sciona.atoms.geo.losses.r2_regression_loss",
+      "review_status": "pending",
+      "review_semantic_verdict": null,
+      "review_developer_semantic_verdict": null,
+      "trust_readiness": "unreviewed",
+      "source_paths": [
+        "src/sciona/atoms/geo/losses/atoms.py",
+        "src/sciona/atoms/geo/losses/atoms_torch.py",
+        "src/sciona/atoms/geo/losses/witnesses.py",
+        "src/sciona/atoms/geo/losses/references.json",
+        "src/sciona/atoms/geo/losses/cdg.json",
+        "tests/test_geo_losses_behavior.py"
+      ],
+      "limitations": [],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_losses.review_bundle.json"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.losses.circular_direction_loss",
+      "review_status": "pending",
+      "review_semantic_verdict": null,
+      "review_developer_semantic_verdict": null,
+      "trust_readiness": "unreviewed",
+      "source_paths": [
+        "src/sciona/atoms/geo/losses/atoms.py",
+        "src/sciona/atoms/geo/losses/witnesses.py",
+        "src/sciona/atoms/geo/losses/references.json",
+        "src/sciona/atoms/geo/losses/cdg.json",
+        "tests/test_geo_losses_behavior.py"
+      ],
+      "limitations": [],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_losses.review_bundle.json"
+    }
+  ]
+}

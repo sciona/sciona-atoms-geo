@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.1",
+  "atoms": {
+    "sciona.atoms.geo.losses.r2_regression_loss@sciona/atoms/geo/losses/atoms.py:35": {
+      "references": [
+        {
+          "ref_id": "christie2021singleview",
+          "match_metadata": {
+            "similarity_score": null,
+            "match_type": "manual",
+            "matched_nodes": [],
+            "confidence": "high",
+            "notes": "R2-based AGL/MAG optimization aligns with the geocentric pose formulation used in the Geopose baseline literature referenced by the 1st-place solution."
+          }
+        },
+        {
+          "ref_id": "repo_geopose_winners",
+          "match_metadata": {
+            "similarity_score": null,
+            "match_type": "manual",
+            "matched_nodes": [],
+            "confidence": "high",
+            "notes": "Upstream source: 1st Place/training/losses.py r2_loss and city-wise R2 loss calculators."
+          }
+        }
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.losses.circular_direction_loss@sciona/atoms/geo/losses/atoms.py:82": {
+      "references": [
+        {
+          "ref_id": "christie2020geocentric",
+          "match_metadata": {
+            "similarity_score": null,
+            "match_type": "manual",
+            "matched_nodes": [],
+            "confidence": "high",
+            "notes": "Orientation prediction is part of geocentric pose, motivating the angular error formulation used by the 1st-place training loss."
+          }
+        },
+        {
+          "ref_id": "repo_geopose_winners",
+          "match_metadata": {
+            "similarity_score": null,
+            "match_type": "manual",
+            "matched_nodes": [],
+            "confidence": "high",
+            "notes": "Upstream source: 1st Place/training/losses.py AngleLossCalculator lines 38-56."
+          }
+        }
+      ],
+      "auto_attribution_runs": []
+    }
+  }
+}

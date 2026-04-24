@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.1",
+  "atoms": {
+    "sciona.atoms.geo.augmentation.gsd_aware_random_crop@sciona/atoms/geo/augmentation/atoms.py:55": {
+      "references": [
+        {
+          "ref_id": "christie2021singleview",
+          "match_metadata": {
+            "similarity_score": null,
+            "match_type": "manual",
+            "matched_nodes": [],
+            "confidence": "medium",
+            "notes": "Geocentric-pose pipelines depend on spatially consistent scaling, motivating GSD-aware crop normalization."
+          }
+        },
+        {
+          "ref_id": "repo_geopose_winners",
+          "match_metadata": {
+            "similarity_score": null,
+            "match_type": "manual",
+            "matched_nodes": [],
+            "confidence": "high",
+            "notes": "Upstream source: 2nd Place/geopose/augmentations.py GeoRandomSizedCrop.apply_to_gsd and related crop logic."
+          }
+        }
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.augmentation.gsd_aware_shift_scale_rotate@sciona/atoms/geo/augmentation/atoms.py:92": {
+      "references": [
+        {
+          "ref_id": "christie2021singleview",
+          "match_metadata": {
+            "similarity_score": null,
+            "match_type": "manual",
+            "matched_nodes": [],
+            "confidence": "medium",
+            "notes": "The Geopose formulation depends on preserving physically meaningful scale information under image transforms."
+          }
+        },
+        {
+          "ref_id": "repo_geopose_winners",
+          "match_metadata": {
+            "similarity_score": null,
+            "match_type": "manual",
+            "matched_nodes": [],
+            "confidence": "high",
+            "notes": "Upstream source: 2nd Place/geopose/augmentations.py GeoShiftScaleRotate.apply_to_gsd."
+          }
+        }
+      ],
+      "auto_attribution_runs": []
+    }
+  }
+}

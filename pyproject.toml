@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sciona-atoms-geo"
+version = "0.1.0"
+description = "Geospatial provider repo for sciona.atoms.* namespace packages"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy",
+  "scipy",
+  "scikit-image",
+  "sciona",
+  "opencv-python",
+]
+
+[project.optional-dependencies]
+torch = ["torch>=2.0"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = true

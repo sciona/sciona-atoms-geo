@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "sciona.atoms.geo.review_bundle.augmentation.core.v1",
+  "provider_repo": "sciona-atoms-geo",
+  "family_batch": "geo_augmentation",
+  "review_status": "pending",
+  "review_semantic_verdict": null,
+  "review_developer_semantic_verdict": null,
+  "trust_readiness": "unreviewed",
+  "authoritative_sources": [
+    {
+      "kind": "local_wrapper",
+      "path": "src/sciona/atoms/geo/augmentation/atoms.py"
+    },
+    {
+      "kind": "local_wrapper",
+      "path": "src/sciona/atoms/geo/augmentation/witnesses.py"
+    },
+    {
+      "kind": "local_references",
+      "path": "src/sciona/atoms/geo/augmentation/references.json"
+    },
+    {
+      "kind": "local_cdg",
+      "path": "src/sciona/atoms/geo/augmentation/cdg.json"
+    },
+    {
+      "kind": "local_test",
+      "path": "tests/test_geo_augmentation_behavior.py"
+    }
+  ],
+  "limitations": [
+    "No standalone oblique-angle correction primitive was present in the referenced 2nd-place augmentation source, so that requested atom was not ingested."
+  ],
+  "blocking_findings": [],
+  "required_actions": [],
+  "review_record_path": "data/review_bundles/geo_augmentation.review_bundle.json",
+  "rows": [
+    {
+      "atom_key": "sciona.atoms.geo.augmentation.gsd_aware_random_crop",
+      "review_status": "pending",
+      "review_semantic_verdict": null,
+      "review_developer_semantic_verdict": null,
+      "trust_readiness": "unreviewed",
+      "source_paths": [
+        "src/sciona/atoms/geo/augmentation/atoms.py",
+        "src/sciona/atoms/geo/augmentation/witnesses.py",
+        "src/sciona/atoms/geo/augmentation/references.json",
+        "src/sciona/atoms/geo/augmentation/cdg.json",
+        "tests/test_geo_augmentation_behavior.py"
+      ],
+      "limitations": [],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_augmentation.review_bundle.json"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.augmentation.gsd_aware_shift_scale_rotate",
+      "review_status": "pending",
+      "review_semantic_verdict": null,
+      "review_developer_semantic_verdict": null,
+      "trust_readiness": "unreviewed",
+      "source_paths": [
+        "src/sciona/atoms/geo/augmentation/atoms.py",
+        "src/sciona/atoms/geo/augmentation/witnesses.py",
+        "src/sciona/atoms/geo/augmentation/references.json",
+        "src/sciona/atoms/geo/augmentation/cdg.json",
+        "tests/test_geo_augmentation_behavior.py"
+      ],
+      "limitations": [],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_augmentation.review_bundle.json"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "nodes": [
+    {
+      "node_id": "geo_augmentation_root",
+      "name": "Geospatial Augmentations",
+      "description": "GSD-aware augmentation primitives extracted from Overhead Geopose 2021 winner code",
+      "status": "decomposed",
+      "children": [
+        "gsd_aware_random_crop",
+        "gsd_aware_shift_scale_rotate"
+      ],
+      "depth": 0
+    },
+    {
+      "node_id": "gsd_aware_random_crop",
+      "name": "gsd_aware_random_crop",
+      "description": "Rescale imagery to a target ground sample distance before taking a random square crop.",
+      "concept_type": "augmentation",
+      "status": "atomic",
+      "type_signature": "(image: NDArray, gsd: float, target_gsd: float, crop_size: int) -> NDArray",
+      "depth": 1,
+      "inputs": [
+        {"name": "image", "type_desc": "NDArray", "required": true},
+        {"name": "gsd", "type_desc": "float", "required": true},
+        {"name": "target_gsd", "type_desc": "float", "required": true},
+        {"name": "crop_size", "type_desc": "int", "required": true}
+      ],
+      "outputs": [
+        {"name": "result", "type_desc": "NDArray"}
+      ]
+    },
+    {
+      "node_id": "gsd_aware_shift_scale_rotate",
+      "name": "gsd_aware_shift_scale_rotate",
+      "description": "Apply an affine image transform while updating GSD metadata according to the sampled scale factor.",
+      "concept_type": "augmentation",
+      "status": "atomic",
+      "type_signature": "(image: NDArray, gsd: float, shift_limit: float, scale_limit: float, rotate_limit: float, rng: Generator) -> tuple[NDArray, float]",
+      "depth": 1,
+      "inputs": [
+        {"name": "image", "type_desc": "NDArray", "required": true},
+        {"name": "gsd", "type_desc": "float", "required": true},
+        {"name": "shift_limit", "type_desc": "float", "required": true},
+        {"name": "scale_limit", "type_desc": "float", "required": true},
+        {"name": "rotate_limit", "type_desc": "float", "required": true},
+        {"name": "rng", "type_desc": "Generator", "required": true}
+      ],
+      "outputs": [
+        {"name": "result", "type_desc": "tuple[NDArray, float]"}
+      ]
+    }
+  ],
+  "edges": [],
+  "metadata": {
+    "source": "agent_ingestion",
+    "source_module": "geopose.augmentations",
+    "source_version": "geopose_2021_winners",
+    "source_license": "MIT"
+  }
+}

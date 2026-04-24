@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "references": {
+    "christie2021singleview": {
+      "ref_id": "christie2021singleview",
+      "type": "paper",
+      "title": "Single View Geocentric Pose in the Wild",
+      "authors": [
+        "Gordon Christie",
+        "Kevin Foster",
+        "Shea Hagstrom",
+        "Gregory D. Hager",
+        "Myron Z. Brown"
+      ],
+      "year": 2021,
+      "venue": "CVPR 2021 EarthVision Workshop",
+      "doi": "10.48550/arXiv.2105.08229",
+      "url": "https://arxiv.org/abs/2105.08229",
+      "match_metadata": {
+        "similarity_score": null,
+        "match_type": "manual",
+        "matched_nodes": [],
+        "confidence": "high",
+        "notes": "Paper cited by the 1st-place Geopose solution README; provides the geocentric pose formulation behind the task."
+      }
+    },
+    "christie2020geocentric": {
+      "ref_id": "christie2020geocentric",
+      "type": "paper",
+      "title": "Learning Geocentric Object Pose in Oblique Monocular Images",
+      "authors": [
+        "Gordon Christie",
+        "Rodrigo Rene Rai Munoz Abujder",
+        "Kevin Foster",
+        "Shea Hagstrom",
+        "Gregory D. Hager",
+        "Myron Z. Brown"
+      ],
+      "year": 2020,
+      "venue": "CVPR",
+      "url": "https://openaccess.thecvf.com/content_CVPR_2020/html/Christie_Learning_Geocentric_Object_Pose_in_Oblique_Monocular_Images_CVPR_2020_paper.html",
+      "match_metadata": {
+        "similarity_score": null,
+        "match_type": "manual",
+        "matched_nodes": [],
+        "confidence": "high",
+        "notes": "Foundational geocentric-pose paper cited directly by the 1st-place Geopose solution README."
+      }
+    },
+    "repo_geopose_winners": {
+      "ref_id": "repo_geopose_winners",
+      "type": "repository",
+      "title": "Overhead Geopose Challenge Winners",
+      "authors": ["DrivenData competitors"],
+      "year": 2021,
+      "venue": "GitHub",
+      "url": "https://github.com/drivendataorg/overhead-geopose-challenge",
+      "match_metadata": {
+        "similarity_score": null,
+        "match_type": "manual",
+        "matched_nodes": [],
+        "confidence": "high",
+        "notes": "MIT-licensed upstream repository containing the 1st-place and 2nd-place Geopose source files used for this ingest."
+      }
+    }
+  }
+}

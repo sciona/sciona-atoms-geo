@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "node_id": "geo_losses_root",
+      "name": "Geospatial Loss Functions",
+      "description": "Loss primitives extracted from Overhead Geopose 2021 winner training code",
+      "status": "decomposed",
+      "children": [
+        "r2_regression_loss",
+        "circular_direction_loss",
+        "geopose_citywise_r2_training_objective"
+      ],
+      "depth": 0
+    },
+    {
+      "node_id": "r2_regression_loss",
+      "name": "r2_regression_loss",
+      "description": "Scale-invariant regression loss computed as residual sum of squares divided by total sum of squares.",
+      "concept_type": "loss_function",
+      "status": "atomic",
+      "type_signature": "(predictions: NDArray[np.float64], targets: NDArray[np.float64], target_mean: float | None = None) -> float",
+      "depth": 1,
+      "inputs": [
+        {"name": "predictions", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "targets", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "target_mean", "type_desc": "float | None", "required": false}
+      ],
+      "outputs": [
+        {"name": "result", "type_desc": "float"}
+      ]
+    },
+    {
+      "node_id": "circular_direction_loss",
+      "name": "circular_direction_loss",
+      "description": "Circular mean angular error between predicted orientation vectors and target angles using atan2(sin, cos).",
+      "concept_type": "loss_function",
+      "status": "atomic",
+      "type_signature": "(pred_sin: NDArray[np.float64], pred_cos: NDArray[np.float64], target_angle: NDArray[np.float64]) -> float",
+      "depth": 1,
+      "inputs": [
+        {"name": "pred_sin", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "pred_cos", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "target_angle", "type_desc": "NDArray[np.float64]", "required": true}
+      ],
+      "outputs": [
+        {"name": "result", "type_desc": "float"}
+      ]
+    },
+    {
+      "node_id": "geopose_citywise_r2_training_objective",
+      "name": "geopose_citywise_r2_training_objective",
+      "description": "Conceptual training objective where the R2 loss is injected into the AGL and MAG city-wise training calculators.",
+      "concept_type": "training_objective",
+      "status": "opaque",
+      "depth": 1
+    }
+  ],
+  "edges": [
+    {
+      "source": "r2_regression_loss",
+      "target": "geopose_citywise_r2_training_objective",
+      "kind": "callable_injection"
+    }
+  ],
+  "metadata": {
+    "source": "agent_ingestion",
+    "source_module": "training.losses",
+    "source_version": "geopose_2021_winners",
+    "source_license": "MIT"
+  }
+}
