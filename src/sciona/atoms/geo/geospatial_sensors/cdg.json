@@ -1,0 +1,248 @@
+{
+  "nodes": [
+    {
+      "node_id": "geospatial_sensors_root",
+      "name": "Geospatial Sensors",
+      "description": "Pure coordinate, GNSS filtering, PDR, map matching, image resampling, and smoother atoms.",
+      "concept_type": "geometry",
+      "status": "decomposed",
+      "children": [
+        "lla_to_ecef",
+        "ecef_to_lla",
+        "ecef_to_enu",
+        "correct_clock_bias",
+        "filter_by_cn0",
+        "filter_multipath",
+        "detect_steps",
+        "estimate_step_length_weinberg",
+        "integrate_heading",
+        "pdr_position_update",
+        "snap_to_nearest",
+        "resample_to_gsd",
+        "rts_smooth",
+        "apply_asymmetric_bias_correction"
+      ],
+      "depth": 0
+    },
+    {
+      "node_id": "lla_to_ecef",
+      "name": "lla_to_ecef",
+      "description": "Convert WGS84 latitude, longitude, and altitude arrays to ECEF coordinates.",
+      "concept_type": "geometry",
+      "status": "atomic",
+      "type_signature": "(lat: NDArray[np.float64], lon: NDArray[np.float64], alt: NDArray[np.float64]) -> tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]",
+      "depth": 1,
+      "inputs": [
+        {"name": "lat", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "lon", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "alt", "type_desc": "NDArray[np.float64]", "required": true}
+      ],
+      "outputs": [{"name": "result", "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]"}]
+    },
+    {
+      "node_id": "ecef_to_lla",
+      "name": "ecef_to_lla",
+      "description": "Convert ECEF coordinate arrays to WGS84 latitude, longitude, and altitude.",
+      "concept_type": "geometry",
+      "status": "atomic",
+      "type_signature": "(x: NDArray[np.float64], y: NDArray[np.float64], z: NDArray[np.float64]) -> tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]",
+      "depth": 1,
+      "inputs": [
+        {"name": "x", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "y", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "z", "type_desc": "NDArray[np.float64]", "required": true}
+      ],
+      "outputs": [{"name": "result", "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]"}]
+    },
+    {
+      "node_id": "ecef_to_enu",
+      "name": "ecef_to_enu",
+      "description": "Project ECEF coordinates into a local east-north-up tangent plane.",
+      "concept_type": "geometry",
+      "status": "atomic",
+      "type_signature": "(x: NDArray[np.float64], y: NDArray[np.float64], z: NDArray[np.float64], ref_lat: float, ref_lon: float, ref_alt: float) -> tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]",
+      "depth": 1,
+      "inputs": [
+        {"name": "x", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "y", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "z", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "ref_lat", "type_desc": "float", "required": true},
+        {"name": "ref_lon", "type_desc": "float", "required": true},
+        {"name": "ref_alt", "type_desc": "float", "required": true}
+      ],
+      "outputs": [{"name": "result", "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]"}]
+    },
+    {
+      "node_id": "correct_clock_bias",
+      "name": "correct_clock_bias",
+      "description": "Correct GNSS pseudoranges for receiver and satellite clock bias.",
+      "concept_type": "signal_filter",
+      "status": "atomic",
+      "type_signature": "(pseudoranges: NDArray[np.float64], sat_clock_bias: NDArray[np.float64], rx_clock_bias: NDArray[np.float64]) -> NDArray[np.float64]",
+      "depth": 1,
+      "inputs": [
+        {"name": "pseudoranges", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "sat_clock_bias", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "rx_clock_bias", "type_desc": "NDArray[np.float64]", "required": true}
+      ],
+      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+    },
+    {
+      "node_id": "filter_by_cn0",
+      "name": "filter_by_cn0",
+      "description": "Mask GNSS measurements whose C/N0 is below a threshold.",
+      "concept_type": "signal_filter",
+      "status": "atomic",
+      "type_signature": "(measurements: NDArray[np.float64], cn0: NDArray[np.float64], threshold: float) -> NDArray[np.float64]",
+      "depth": 1,
+      "inputs": [
+        {"name": "measurements", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "cn0", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "threshold", "type_desc": "float", "required": true}
+      ],
+      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+    },
+    {
+      "node_id": "filter_multipath",
+      "name": "filter_multipath",
+      "description": "Mask measurements whose multipath indicator exceeds a threshold.",
+      "concept_type": "signal_filter",
+      "status": "atomic",
+      "type_signature": "(measurements: NDArray[np.float64], multipath_indicator: NDArray[np.float64], threshold: float) -> NDArray[np.float64]",
+      "depth": 1,
+      "inputs": [
+        {"name": "measurements", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "multipath_indicator", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "threshold", "type_desc": "float", "required": true}
+      ],
+      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+    },
+    {
+      "node_id": "detect_steps",
+      "name": "detect_steps",
+      "description": "Detect pedestrian step events as constrained acceleration peaks.",
+      "concept_type": "signal_filter",
+      "status": "atomic",
+      "type_signature": "(accel_magnitude: NDArray[np.float64], threshold: float, prominence: float, min_distance: int) -> NDArray[np.int64]",
+      "depth": 1,
+      "inputs": [
+        {"name": "accel_magnitude", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "threshold", "type_desc": "float", "required": true},
+        {"name": "prominence", "type_desc": "float", "required": true},
+        {"name": "min_distance", "type_desc": "int", "required": true}
+      ],
+      "outputs": [{"name": "result", "type_desc": "NDArray[np.int64]"}]
+    },
+    {
+      "node_id": "estimate_step_length_weinberg",
+      "name": "estimate_step_length_weinberg",
+      "description": "Estimate stride length from vertical acceleration range per step cycle.",
+      "concept_type": "sequential_filter",
+      "status": "atomic",
+      "type_signature": "(accel_z: NDArray[np.float64], step_indices: NDArray[np.int64], k_constant: float) -> NDArray[np.float64]",
+      "depth": 1,
+      "inputs": [
+        {"name": "accel_z", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "step_indices", "type_desc": "NDArray[np.int64]", "required": true},
+        {"name": "k_constant", "type_desc": "float", "required": true}
+      ],
+      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+    },
+    {
+      "node_id": "integrate_heading",
+      "name": "integrate_heading",
+      "description": "Integrate z-axis angular velocity into heading.",
+      "concept_type": "sequential_filter",
+      "status": "atomic",
+      "type_signature": "(gyro_z: NDArray[np.float64], dt: float, initial_heading: float = 0.0) -> NDArray[np.float64]",
+      "depth": 1,
+      "inputs": [
+        {"name": "gyro_z", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "dt", "type_desc": "float", "required": true},
+        {"name": "initial_heading", "type_desc": "float", "required": false}
+      ],
+      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+    },
+    {
+      "node_id": "pdr_position_update",
+      "name": "pdr_position_update",
+      "description": "Accumulate a two-dimensional PDR path from step lengths and headings.",
+      "concept_type": "geometry",
+      "status": "atomic",
+      "type_signature": "(step_lengths: NDArray[np.float64], headings: NDArray[np.float64], initial_position: tuple[float, float]) -> NDArray[np.float64]",
+      "depth": 1,
+      "inputs": [
+        {"name": "step_lengths", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "headings", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "initial_position", "type_desc": "tuple[float, float]", "required": true}
+      ],
+      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+    },
+    {
+      "node_id": "snap_to_nearest",
+      "name": "snap_to_nearest",
+      "description": "Project trajectory points to nearest valid map/grid nodes.",
+      "concept_type": "geometry",
+      "status": "atomic",
+      "type_signature": "(trajectory: NDArray[np.float64], grid_nodes: NDArray[np.float64]) -> NDArray[np.float64]",
+      "depth": 1,
+      "inputs": [
+        {"name": "trajectory", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "grid_nodes", "type_desc": "NDArray[np.float64]", "required": true}
+      ],
+      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+    },
+    {
+      "node_id": "resample_to_gsd",
+      "name": "resample_to_gsd",
+      "description": "Resample a spatial image to a target ground sampling distance.",
+      "concept_type": "data_extraction",
+      "status": "atomic",
+      "type_signature": "(image: NDArray[np.float64], current_gsd: float, target_gsd: float) -> NDArray[np.float64]",
+      "depth": 1,
+      "inputs": [
+        {"name": "image", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "current_gsd", "type_desc": "float", "required": true},
+        {"name": "target_gsd", "type_desc": "float", "required": true}
+      ],
+      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+    },
+    {
+      "node_id": "rts_smooth",
+      "name": "rts_smooth",
+      "description": "Run a fixed-interval Rauch-Tung-Striebel smoother over filter histories.",
+      "concept_type": "sequential_filter",
+      "status": "atomic",
+      "type_signature": "(filtered_states: NDArray[np.float64], filtered_covs: NDArray[np.float64], predicted_states: NDArray[np.float64], predicted_covs: NDArray[np.float64], transition_matrices: NDArray[np.float64]) -> tuple[NDArray[np.float64], NDArray[np.float64]]",
+      "depth": 1,
+      "inputs": [
+        {"name": "filtered_states", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "filtered_covs", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "predicted_states", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "predicted_covs", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "transition_matrices", "type_desc": "NDArray[np.float64]", "required": true}
+      ],
+      "outputs": [{"name": "result", "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64]]"}]
+    },
+    {
+      "node_id": "apply_asymmetric_bias_correction",
+      "name": "apply_asymmetric_bias_correction",
+      "description": "Scale selected predictions by a positive asymmetric-loss correction factor.",
+      "concept_type": "signal_filter",
+      "status": "atomic",
+      "type_signature": "(predictions: NDArray[np.float64], multiplier: float, condition_mask: NDArray[np.bool_]) -> NDArray[np.float64]",
+      "depth": 1,
+      "inputs": [
+        {"name": "predictions", "type_desc": "NDArray[np.float64]", "required": true},
+        {"name": "multiplier", "type_desc": "float", "required": true},
+        {"name": "condition_mask", "type_desc": "NDArray[np.bool_]", "required": true}
+      ],
+      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+    }
+  ],
+  "edges": [],
+  "metadata": {
+    "source": "manual",
+    "family": "geo_geospatial_sensors"
+  }
+}

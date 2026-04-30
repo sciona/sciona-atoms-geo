@@ -62,6 +62,118 @@
         "confidence": "high",
         "notes": "MIT-licensed upstream repository containing the 1st-place and 2nd-place Geopose source files used for this ingest."
       }
+    },
+    "sciona2026geospatialgnss": {
+      "ref_id": "sciona2026geospatialgnss",
+      "type": "internal_research_report",
+      "title": "Geospatial, GNSS, Sensor Fusion Atoms Research",
+      "authors": ["Sciona research process"],
+      "year": 2026,
+      "venue": "sciona-atoms research/15_research.pdf",
+      "url": "file:///Users/conrad/personal/sciona-atoms/research/15_research.pdf",
+      "match_metadata": {
+        "similarity_score": null,
+        "match_type": "manual",
+        "matched_nodes": [],
+        "confidence": "high",
+        "notes": "Local research report defining geospatial, GNSS, PDR, map matching, image resampling, and smoother atom candidates."
+      }
+    },
+    "repo_pymap3d": {
+      "ref_id": "repo_pymap3d",
+      "type": "repository",
+      "title": "pymap3d",
+      "authors": ["pymap3d contributors"],
+      "year": 2026,
+      "venue": "GitHub",
+      "url": "https://github.com/geospace-code/pymap3d",
+      "match_metadata": {
+        "similarity_score": null,
+        "match_type": "manual",
+        "matched_nodes": [],
+        "confidence": "high",
+        "notes": "BSD-2-Clause geodetic conversion library cited by the research report for WGS84 ECEF/LLA/ENU formulas."
+      }
+    },
+    "scipy_spatial_kdtree": {
+      "ref_id": "scipy_spatial_kdtree",
+      "type": "documentation",
+      "title": "scipy.spatial.KDTree",
+      "authors": ["SciPy Developers"],
+      "year": 2026,
+      "venue": "SciPy documentation",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.KDTree.html",
+      "match_metadata": {
+        "similarity_score": null,
+        "match_type": "manual",
+        "matched_nodes": [],
+        "confidence": "high",
+        "notes": "BSD-licensed nearest-neighbor API used for nearest-node map matching."
+      }
+    },
+    "scipy_signal_find_peaks": {
+      "ref_id": "scipy_signal_find_peaks",
+      "type": "documentation",
+      "title": "scipy.signal.find_peaks",
+      "authors": ["SciPy Developers"],
+      "year": 2026,
+      "venue": "SciPy documentation",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html",
+      "match_metadata": {
+        "similarity_score": null,
+        "match_type": "manual",
+        "matched_nodes": [],
+        "confidence": "high",
+        "notes": "BSD-licensed peak detection API used for accelerometer step extraction."
+      }
+    },
+    "labbe2015kalman": {
+      "ref_id": "labbe2015kalman",
+      "type": "book",
+      "title": "Kalman and Bayesian Filters in Python",
+      "authors": ["Roger R. Labbe"],
+      "year": 2015,
+      "venue": "GitHub",
+      "url": "https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python",
+      "match_metadata": {
+        "similarity_score": null,
+        "match_type": "manual",
+        "matched_nodes": [],
+        "confidence": "medium",
+        "notes": "MIT-licensed reference for fixed-interval RTS smoother equations."
+      }
+    },
+    "weinberg2002pdr": {
+      "ref_id": "weinberg2002pdr",
+      "type": "paper",
+      "title": "Using the ADXL202 in Pedometer and Personal Navigation Applications",
+      "authors": ["Harvey Weinberg"],
+      "year": 2002,
+      "venue": "Analog Devices application note",
+      "url": "https://www.analog.com/media/en/technical-documentation/application-notes/513772624AN602.pdf",
+      "match_metadata": {
+        "similarity_score": null,
+        "match_type": "manual",
+        "matched_nodes": [],
+        "confidence": "medium",
+        "notes": "Reference for acceleration-range step length estimation used in pedestrian dead reckoning."
+      }
+    },
+    "scipy_ndimage_zoom": {
+      "ref_id": "scipy_ndimage_zoom",
+      "type": "documentation",
+      "title": "scipy.ndimage.zoom",
+      "authors": ["SciPy Developers"],
+      "year": 2026,
+      "venue": "SciPy documentation",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.zoom.html",
+      "match_metadata": {
+        "similarity_score": null,
+        "match_type": "manual",
+        "matched_nodes": [],
+        "confidence": "high",
+        "notes": "BSD-licensed interpolation API used for GSD-normalized image resampling."
+      }
     }
   }
 }

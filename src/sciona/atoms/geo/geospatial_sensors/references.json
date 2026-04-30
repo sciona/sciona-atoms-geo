@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.1",
+  "atoms": {
+    "sciona.atoms.geo.geospatial_sensors.lla_to_ecef@sciona/atoms/geo/geospatial_sensors/atoms.py:79": {
+      "references": [
+        {"ref_id": "sciona2026geospatialgnss", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Local research report specifies pure NumPy WGS84 LLA to ECEF conversion."}},
+        {"ref_id": "repo_pymap3d", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Source context for WGS84 coordinate conversion formulas."}}
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.geospatial_sensors.ecef_to_lla@sciona/atoms/geo/geospatial_sensors/atoms.py:102": {
+      "references": [
+        {"ref_id": "sciona2026geospatialgnss", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Local research report specifies non-iterative ECEF to LLA conversion."}},
+        {"ref_id": "repo_pymap3d", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Source context for vectorized geodetic conversion formulas."}}
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.geospatial_sensors.ecef_to_enu@sciona/atoms/geo/geospatial_sensors/atoms.py:135": {
+      "references": [
+        {"ref_id": "sciona2026geospatialgnss", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Local research report specifies ECEF projection to a local ENU tangent plane."}},
+        {"ref_id": "repo_pymap3d", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Source context for local tangent-plane projection semantics."}}
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.geospatial_sensors.correct_clock_bias@sciona/atoms/geo/geospatial_sensors/atoms.py:166": {
+      "references": [
+        {"ref_id": "sciona2026geospatialgnss", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Local research report specifies GNSS pseudorange clock-bias correction."}}
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.geospatial_sensors.filter_by_cn0@sciona/atoms/geo/geospatial_sensors/atoms.py:182": {
+      "references": [
+        {"ref_id": "sciona2026geospatialgnss", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Local research report specifies C/N0 threshold filtering for GNSS measurements."}}
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.geospatial_sensors.filter_multipath@sciona/atoms/geo/geospatial_sensors/atoms.py:196": {
+      "references": [
+        {"ref_id": "sciona2026geospatialgnss", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Local research report specifies multipath indicator threshold filtering."}}
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.geospatial_sensors.detect_steps@sciona/atoms/geo/geospatial_sensors/atoms.py:212": {
+      "references": [
+        {"ref_id": "sciona2026geospatialgnss", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Local research report specifies PDR step detection from acceleration peaks."}},
+        {"ref_id": "scipy_signal_find_peaks", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Uses SciPy peak detection with height, prominence, and distance constraints."}}
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.geospatial_sensors.estimate_step_length_weinberg@sciona/atoms/geo/geospatial_sensors/atoms.py:234": {
+      "references": [
+        {"ref_id": "sciona2026geospatialgnss", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Local research report specifies Weinberg-style acceleration range step length estimation."}},
+        {"ref_id": "weinberg2002pdr", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "medium", "notes": "Acceleration range to stride length formula for personal navigation."}}
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.geospatial_sensors.integrate_heading@sciona/atoms/geo/geospatial_sensors/atoms.py:255": {
+      "references": [
+        {"ref_id": "sciona2026geospatialgnss", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Local research report specifies heading integration from z-axis gyroscope samples."}}
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.geospatial_sensors.pdr_position_update@sciona/atoms/geo/geospatial_sensors/atoms.py:276": {
+      "references": [
+        {"ref_id": "sciona2026geospatialgnss", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Local research report specifies PDR position updates from step lengths and headings."}}
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.geospatial_sensors.snap_to_nearest@sciona/atoms/geo/geospatial_sensors/atoms.py:295": {
+      "references": [
+        {"ref_id": "sciona2026geospatialgnss", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Local research report selects nearest-node snapping as the pure map-matching boundary."}},
+        {"ref_id": "scipy_spatial_kdtree", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Uses SciPy nearest-neighbor search over map/grid nodes."}}
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.geospatial_sensors.resample_to_gsd@sciona/atoms/geo/geospatial_sensors/atoms.py:310": {
+      "references": [
+        {"ref_id": "sciona2026geospatialgnss", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Local research report specifies GSD-normalized satellite image resampling."}},
+        {"ref_id": "scipy_ndimage_zoom", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Uses SciPy interpolation to scale spatial axes."}}
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.geospatial_sensors.rts_smooth@sciona/atoms/geo/geospatial_sensors/atoms.py:328": {
+      "references": [
+        {"ref_id": "sciona2026geospatialgnss", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Local research report specifies RTS smoothing as a reusable sequential filter atom."}},
+        {"ref_id": "labbe2015kalman", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "medium", "notes": "Reference for fixed-interval smoother equations."}}
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.geospatial_sensors.apply_asymmetric_bias_correction@sciona/atoms/geo/geospatial_sensors/atoms.py:357": {
+      "references": [
+        {"ref_id": "sciona2026geospatialgnss", "match_metadata": {"similarity_score": null, "match_type": "manual", "matched_nodes": [], "confidence": "high", "notes": "Local research report includes heuristic multiplier/bias correction as a pure prediction post-processing atom."}}
+      ],
+      "auto_attribution_runs": []
+    }
+  }
+}

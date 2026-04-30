@@ -1,0 +1,347 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "sciona.atoms.geo.review_bundle.geospatial_sensors.v1",
+  "provider_repo": "sciona-atoms-geo",
+  "family_batch": "geo_geospatial_sensors",
+  "review_status": "reviewed",
+  "review_semantic_verdict": "pass_with_limits",
+  "review_developer_semantic_verdict": "pass_with_limits",
+  "trust_readiness": "reviewed_with_limits",
+  "authoritative_sources": [
+    {
+      "kind": "local_wrapper",
+      "path": "src/sciona/atoms/geo/geospatial_sensors/atoms.py"
+    },
+    {
+      "kind": "local_wrapper",
+      "path": "src/sciona/atoms/geo/geospatial_sensors/witnesses.py"
+    },
+    {
+      "kind": "local_references",
+      "path": "src/sciona/atoms/geo/geospatial_sensors/references.json"
+    },
+    {
+      "kind": "local_cdg",
+      "path": "src/sciona/atoms/geo/geospatial_sensors/cdg.json"
+    },
+    {
+      "kind": "local_test",
+      "path": "tests/test_geo_geospatial_sensors_behavior.py"
+    }
+  ],
+  "limitations": [
+    "Coordinate transforms use direct WGS84 formulas and are intended for feature engineering scale, not survey-grade geodesy edge cases.",
+    "GNSS atmospheric ionosphere and troposphere models were left for a future atom pass because this ingest focused on clock and quality filtering plus reusable geometry/PDR primitives.",
+    "Map matching is nearest-node snapping only; Hidden Markov map matching remains orchestration.",
+    "RTS smoothing assumes aligned forward-filter histories are supplied by upstream EKF atoms."
+  ],
+  "blocking_findings": [],
+  "required_actions": [],
+  "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+  "rows": [
+    {
+      "atom_key": "sciona.atoms.geo.geospatial_sensors.lla_to_ecef",
+      "atom_name": "sciona.atoms.geo.geospatial_sensors.lla_to_ecef",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass_with_limits",
+      "review_developer_semantic_verdict": "pass_with_limits",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/geospatial_sensors/atoms.py",
+        "src/sciona/atoms/geo/geospatial_sensors/witnesses.py",
+        "src/sciona/atoms/geo/geospatial_sensors/references.json",
+        "src/sciona/atoms/geo/geospatial_sensors/cdg.json",
+        "tests/test_geo_geospatial_sensors_behavior.py"
+      ],
+      "limitations": [
+        "Direct WGS84 formula without CRS object support."
+      ],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.geospatial_sensors.ecef_to_lla",
+      "atom_name": "sciona.atoms.geo.geospatial_sensors.ecef_to_lla",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass_with_limits",
+      "review_developer_semantic_verdict": "pass_with_limits",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/geospatial_sensors/atoms.py",
+        "src/sciona/atoms/geo/geospatial_sensors/witnesses.py",
+        "src/sciona/atoms/geo/geospatial_sensors/references.json",
+        "src/sciona/atoms/geo/geospatial_sensors/cdg.json",
+        "tests/test_geo_geospatial_sensors_behavior.py"
+      ],
+      "limitations": [
+        "Closed-form Bowring-style conversion; polar singularities are not separately specialized."
+      ],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.geospatial_sensors.ecef_to_enu",
+      "atom_name": "sciona.atoms.geo.geospatial_sensors.ecef_to_enu",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass",
+      "review_developer_semantic_verdict": "pass",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/geospatial_sensors/atoms.py",
+        "src/sciona/atoms/geo/geospatial_sensors/witnesses.py",
+        "src/sciona/atoms/geo/geospatial_sensors/references.json",
+        "src/sciona/atoms/geo/geospatial_sensors/cdg.json",
+        "tests/test_geo_geospatial_sensors_behavior.py"
+      ],
+      "limitations": [],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.geospatial_sensors.correct_clock_bias",
+      "atom_name": "sciona.atoms.geo.geospatial_sensors.correct_clock_bias",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass",
+      "review_developer_semantic_verdict": "pass",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/geospatial_sensors/atoms.py",
+        "src/sciona/atoms/geo/geospatial_sensors/witnesses.py",
+        "src/sciona/atoms/geo/geospatial_sensors/references.json",
+        "src/sciona/atoms/geo/geospatial_sensors/cdg.json",
+        "tests/test_geo_geospatial_sensors_behavior.py"
+      ],
+      "limitations": [],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.geospatial_sensors.filter_by_cn0",
+      "atom_name": "sciona.atoms.geo.geospatial_sensors.filter_by_cn0",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass",
+      "review_developer_semantic_verdict": "pass",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/geospatial_sensors/atoms.py",
+        "src/sciona/atoms/geo/geospatial_sensors/witnesses.py",
+        "src/sciona/atoms/geo/geospatial_sensors/references.json",
+        "src/sciona/atoms/geo/geospatial_sensors/cdg.json",
+        "tests/test_geo_geospatial_sensors_behavior.py"
+      ],
+      "limitations": [],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.geospatial_sensors.filter_multipath",
+      "atom_name": "sciona.atoms.geo.geospatial_sensors.filter_multipath",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass",
+      "review_developer_semantic_verdict": "pass",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/geospatial_sensors/atoms.py",
+        "src/sciona/atoms/geo/geospatial_sensors/witnesses.py",
+        "src/sciona/atoms/geo/geospatial_sensors/references.json",
+        "src/sciona/atoms/geo/geospatial_sensors/cdg.json",
+        "tests/test_geo_geospatial_sensors_behavior.py"
+      ],
+      "limitations": [],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.geospatial_sensors.detect_steps",
+      "atom_name": "sciona.atoms.geo.geospatial_sensors.detect_steps",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass",
+      "review_developer_semantic_verdict": "pass",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/geospatial_sensors/atoms.py",
+        "src/sciona/atoms/geo/geospatial_sensors/witnesses.py",
+        "src/sciona/atoms/geo/geospatial_sensors/references.json",
+        "src/sciona/atoms/geo/geospatial_sensors/cdg.json",
+        "tests/test_geo_geospatial_sensors_behavior.py"
+      ],
+      "limitations": [],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.geospatial_sensors.estimate_step_length_weinberg",
+      "atom_name": "sciona.atoms.geo.geospatial_sensors.estimate_step_length_weinberg",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass_with_limits",
+      "review_developer_semantic_verdict": "pass_with_limits",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/geospatial_sensors/atoms.py",
+        "src/sciona/atoms/geo/geospatial_sensors/witnesses.py",
+        "src/sciona/atoms/geo/geospatial_sensors/references.json",
+        "src/sciona/atoms/geo/geospatial_sensors/cdg.json",
+        "tests/test_geo_geospatial_sensors_behavior.py"
+      ],
+      "limitations": [
+        "Returns one stride length per adjacent step-index interval."
+      ],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.geospatial_sensors.integrate_heading",
+      "atom_name": "sciona.atoms.geo.geospatial_sensors.integrate_heading",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass",
+      "review_developer_semantic_verdict": "pass",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/geospatial_sensors/atoms.py",
+        "src/sciona/atoms/geo/geospatial_sensors/witnesses.py",
+        "src/sciona/atoms/geo/geospatial_sensors/references.json",
+        "src/sciona/atoms/geo/geospatial_sensors/cdg.json",
+        "tests/test_geo_geospatial_sensors_behavior.py"
+      ],
+      "limitations": [],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.geospatial_sensors.pdr_position_update",
+      "atom_name": "sciona.atoms.geo.geospatial_sensors.pdr_position_update",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass",
+      "review_developer_semantic_verdict": "pass",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/geospatial_sensors/atoms.py",
+        "src/sciona/atoms/geo/geospatial_sensors/witnesses.py",
+        "src/sciona/atoms/geo/geospatial_sensors/references.json",
+        "src/sciona/atoms/geo/geospatial_sensors/cdg.json",
+        "tests/test_geo_geospatial_sensors_behavior.py"
+      ],
+      "limitations": [],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.geospatial_sensors.snap_to_nearest",
+      "atom_name": "sciona.atoms.geo.geospatial_sensors.snap_to_nearest",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass_with_limits",
+      "review_developer_semantic_verdict": "pass_with_limits",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/geospatial_sensors/atoms.py",
+        "src/sciona/atoms/geo/geospatial_sensors/witnesses.py",
+        "src/sciona/atoms/geo/geospatial_sensors/references.json",
+        "src/sciona/atoms/geo/geospatial_sensors/cdg.json",
+        "tests/test_geo_geospatial_sensors_behavior.py"
+      ],
+      "limitations": [
+        "Nearest-node snapping only; no HMM transition model."
+      ],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.geospatial_sensors.resample_to_gsd",
+      "atom_name": "sciona.atoms.geo.geospatial_sensors.resample_to_gsd",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass",
+      "review_developer_semantic_verdict": "pass",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/geospatial_sensors/atoms.py",
+        "src/sciona/atoms/geo/geospatial_sensors/witnesses.py",
+        "src/sciona/atoms/geo/geospatial_sensors/references.json",
+        "src/sciona/atoms/geo/geospatial_sensors/cdg.json",
+        "tests/test_geo_geospatial_sensors_behavior.py"
+      ],
+      "limitations": [],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.geospatial_sensors.rts_smooth",
+      "atom_name": "sciona.atoms.geo.geospatial_sensors.rts_smooth",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass_with_limits",
+      "review_developer_semantic_verdict": "pass_with_limits",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/geospatial_sensors/atoms.py",
+        "src/sciona/atoms/geo/geospatial_sensors/witnesses.py",
+        "src/sciona/atoms/geo/geospatial_sensors/references.json",
+        "src/sciona/atoms/geo/geospatial_sensors/cdg.json",
+        "tests/test_geo_geospatial_sensors_behavior.py"
+      ],
+      "limitations": [
+        "Requires caller-supplied forward-filter and prediction histories."
+      ],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.geospatial_sensors.apply_asymmetric_bias_correction",
+      "atom_name": "sciona.atoms.geo.geospatial_sensors.apply_asymmetric_bias_correction",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass",
+      "review_developer_semantic_verdict": "pass",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/geospatial_sensors/atoms.py",
+        "src/sciona/atoms/geo/geospatial_sensors/witnesses.py",
+        "src/sciona/atoms/geo/geospatial_sensors/references.json",
+        "src/sciona/atoms/geo/geospatial_sensors/cdg.json",
+        "tests/test_geo_geospatial_sensors_behavior.py"
+      ],
+      "limitations": [],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_geospatial_sensors.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    }
+  ]
+}
