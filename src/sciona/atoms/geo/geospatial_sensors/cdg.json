@@ -33,11 +33,28 @@
       "type_signature": "(lat: NDArray[np.float64], lon: NDArray[np.float64], alt: NDArray[np.float64]) -> tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]",
       "depth": 1,
       "inputs": [
-        {"name": "lat", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "lon", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "alt", "type_desc": "NDArray[np.float64]", "required": true}
+        {
+          "name": "lat",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "lon",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "alt",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        }
       ],
-      "outputs": [{"name": "result", "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]"}]
+      "outputs": [
+        {
+          "name": "result",
+          "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]"
+        }
+      ]
     },
     {
       "node_id": "ecef_to_lla",
@@ -48,11 +65,28 @@
       "type_signature": "(x: NDArray[np.float64], y: NDArray[np.float64], z: NDArray[np.float64]) -> tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]",
       "depth": 1,
       "inputs": [
-        {"name": "x", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "y", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "z", "type_desc": "NDArray[np.float64]", "required": true}
+        {
+          "name": "x",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "y",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "z",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        }
       ],
-      "outputs": [{"name": "result", "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]"}]
+      "outputs": [
+        {
+          "name": "result",
+          "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]"
+        }
+      ]
     },
     {
       "node_id": "ecef_to_enu",
@@ -63,14 +97,43 @@
       "type_signature": "(x: NDArray[np.float64], y: NDArray[np.float64], z: NDArray[np.float64], ref_lat: float, ref_lon: float, ref_alt: float) -> tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]",
       "depth": 1,
       "inputs": [
-        {"name": "x", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "y", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "z", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "ref_lat", "type_desc": "float", "required": true},
-        {"name": "ref_lon", "type_desc": "float", "required": true},
-        {"name": "ref_alt", "type_desc": "float", "required": true}
+        {
+          "name": "x",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "y",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "z",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "ref_lat",
+          "type_desc": "float",
+          "required": true
+        },
+        {
+          "name": "ref_lon",
+          "type_desc": "float",
+          "required": true
+        },
+        {
+          "name": "ref_alt",
+          "type_desc": "float",
+          "required": true
+        }
       ],
-      "outputs": [{"name": "result", "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]"}]
+      "outputs": [
+        {
+          "name": "result",
+          "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]"
+        }
+      ]
     },
     {
       "node_id": "correct_clock_bias",
@@ -81,11 +144,28 @@
       "type_signature": "(pseudoranges: NDArray[np.float64], sat_clock_bias: NDArray[np.float64], rx_clock_bias: NDArray[np.float64]) -> NDArray[np.float64]",
       "depth": 1,
       "inputs": [
-        {"name": "pseudoranges", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "sat_clock_bias", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "rx_clock_bias", "type_desc": "NDArray[np.float64]", "required": true}
+        {
+          "name": "pseudoranges",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "sat_clock_bias",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "rx_clock_bias",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        }
       ],
-      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+      "outputs": [
+        {
+          "name": "result",
+          "type_desc": "NDArray[np.float64]"
+        }
+      ]
     },
     {
       "node_id": "filter_by_cn0",
@@ -96,11 +176,28 @@
       "type_signature": "(measurements: NDArray[np.float64], cn0: NDArray[np.float64], threshold: float) -> NDArray[np.float64]",
       "depth": 1,
       "inputs": [
-        {"name": "measurements", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "cn0", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "threshold", "type_desc": "float", "required": true}
+        {
+          "name": "measurements",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "cn0",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "threshold",
+          "type_desc": "float",
+          "required": true
+        }
       ],
-      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+      "outputs": [
+        {
+          "name": "result",
+          "type_desc": "NDArray[np.float64]"
+        }
+      ]
     },
     {
       "node_id": "filter_multipath",
@@ -111,11 +208,28 @@
       "type_signature": "(measurements: NDArray[np.float64], multipath_indicator: NDArray[np.float64], threshold: float) -> NDArray[np.float64]",
       "depth": 1,
       "inputs": [
-        {"name": "measurements", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "multipath_indicator", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "threshold", "type_desc": "float", "required": true}
+        {
+          "name": "measurements",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "multipath_indicator",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "threshold",
+          "type_desc": "float",
+          "required": true
+        }
       ],
-      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+      "outputs": [
+        {
+          "name": "result",
+          "type_desc": "NDArray[np.float64]"
+        }
+      ]
     },
     {
       "node_id": "detect_steps",
@@ -126,12 +240,46 @@
       "type_signature": "(accel_magnitude: NDArray[np.float64], threshold: float, prominence: float, min_distance: int) -> NDArray[np.int64]",
       "depth": 1,
       "inputs": [
-        {"name": "accel_magnitude", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "threshold", "type_desc": "float", "required": true},
-        {"name": "prominence", "type_desc": "float", "required": true},
-        {"name": "min_distance", "type_desc": "int", "required": true}
+        {
+          "name": "accel_magnitude",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "threshold",
+          "type_desc": "float",
+          "required": true
+        },
+        {
+          "name": "prominence",
+          "type_desc": "float",
+          "required": true
+        },
+        {
+          "name": "min_distance",
+          "type_desc": "int",
+          "required": true
+        }
       ],
-      "outputs": [{"name": "result", "type_desc": "NDArray[np.int64]"}]
+      "outputs": [
+        {
+          "name": "result",
+          "type_desc": "NDArray[np.int64]"
+        }
+      ],
+      "common_patterns": [
+        {
+          "pattern_id": "pdr_navigation",
+          "description": "Detect steps from accelerometer, estimate lengths, compute positions",
+          "atoms": [
+            "detect_steps",
+            "estimate_step_length_weinberg",
+            "pdr_position_update"
+          ],
+          "ordering": "sequential",
+          "when": "Stage describes pedestrian dead reckoning from IMU"
+        }
+      ]
     },
     {
       "node_id": "estimate_step_length_weinberg",
@@ -142,11 +290,41 @@
       "type_signature": "(accel_z: NDArray[np.float64], step_indices: NDArray[np.int64], k_constant: float) -> NDArray[np.float64]",
       "depth": 1,
       "inputs": [
-        {"name": "accel_z", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "step_indices", "type_desc": "NDArray[np.int64]", "required": true},
-        {"name": "k_constant", "type_desc": "float", "required": true}
+        {
+          "name": "accel_z",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "step_indices",
+          "type_desc": "NDArray[np.int64]",
+          "required": true
+        },
+        {
+          "name": "k_constant",
+          "type_desc": "float",
+          "required": true
+        }
       ],
-      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+      "outputs": [
+        {
+          "name": "result",
+          "type_desc": "NDArray[np.float64]"
+        }
+      ],
+      "common_patterns": [
+        {
+          "pattern_id": "pdr_navigation",
+          "description": "Detect steps from accelerometer, estimate lengths, compute positions",
+          "atoms": [
+            "detect_steps",
+            "estimate_step_length_weinberg",
+            "pdr_position_update"
+          ],
+          "ordering": "sequential",
+          "when": "Stage describes pedestrian dead reckoning from IMU"
+        }
+      ]
     },
     {
       "node_id": "integrate_heading",
@@ -157,11 +335,28 @@
       "type_signature": "(gyro_z: NDArray[np.float64], dt: float, initial_heading: float = 0.0) -> NDArray[np.float64]",
       "depth": 1,
       "inputs": [
-        {"name": "gyro_z", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "dt", "type_desc": "float", "required": true},
-        {"name": "initial_heading", "type_desc": "float", "required": false}
+        {
+          "name": "gyro_z",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "dt",
+          "type_desc": "float",
+          "required": true
+        },
+        {
+          "name": "initial_heading",
+          "type_desc": "float",
+          "required": false
+        }
       ],
-      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+      "outputs": [
+        {
+          "name": "result",
+          "type_desc": "NDArray[np.float64]"
+        }
+      ]
     },
     {
       "node_id": "pdr_position_update",
@@ -172,11 +367,41 @@
       "type_signature": "(step_lengths: NDArray[np.float64], headings: NDArray[np.float64], initial_position: tuple[float, float]) -> NDArray[np.float64]",
       "depth": 1,
       "inputs": [
-        {"name": "step_lengths", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "headings", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "initial_position", "type_desc": "tuple[float, float]", "required": true}
+        {
+          "name": "step_lengths",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "headings",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "initial_position",
+          "type_desc": "tuple[float, float]",
+          "required": true
+        }
       ],
-      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+      "outputs": [
+        {
+          "name": "result",
+          "type_desc": "NDArray[np.float64]"
+        }
+      ],
+      "common_patterns": [
+        {
+          "pattern_id": "pdr_navigation",
+          "description": "Detect steps from accelerometer, estimate lengths, compute positions",
+          "atoms": [
+            "detect_steps",
+            "estimate_step_length_weinberg",
+            "pdr_position_update"
+          ],
+          "ordering": "sequential",
+          "when": "Stage describes pedestrian dead reckoning from IMU"
+        }
+      ]
     },
     {
       "node_id": "snap_to_nearest",
@@ -187,10 +412,23 @@
       "type_signature": "(trajectory: NDArray[np.float64], grid_nodes: NDArray[np.float64]) -> NDArray[np.float64]",
       "depth": 1,
       "inputs": [
-        {"name": "trajectory", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "grid_nodes", "type_desc": "NDArray[np.float64]", "required": true}
+        {
+          "name": "trajectory",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "grid_nodes",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        }
       ],
-      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+      "outputs": [
+        {
+          "name": "result",
+          "type_desc": "NDArray[np.float64]"
+        }
+      ]
     },
     {
       "node_id": "resample_to_gsd",
@@ -201,11 +439,28 @@
       "type_signature": "(image: NDArray[np.float64], current_gsd: float, target_gsd: float) -> NDArray[np.float64]",
       "depth": 1,
       "inputs": [
-        {"name": "image", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "current_gsd", "type_desc": "float", "required": true},
-        {"name": "target_gsd", "type_desc": "float", "required": true}
+        {
+          "name": "image",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "current_gsd",
+          "type_desc": "float",
+          "required": true
+        },
+        {
+          "name": "target_gsd",
+          "type_desc": "float",
+          "required": true
+        }
       ],
-      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+      "outputs": [
+        {
+          "name": "result",
+          "type_desc": "NDArray[np.float64]"
+        }
+      ]
     },
     {
       "node_id": "rts_smooth",
@@ -216,13 +471,51 @@
       "type_signature": "(filtered_states: NDArray[np.float64], filtered_covs: NDArray[np.float64], predicted_states: NDArray[np.float64], predicted_covs: NDArray[np.float64], transition_matrices: NDArray[np.float64]) -> tuple[NDArray[np.float64], NDArray[np.float64]]",
       "depth": 1,
       "inputs": [
-        {"name": "filtered_states", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "filtered_covs", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "predicted_states", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "predicted_covs", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "transition_matrices", "type_desc": "NDArray[np.float64]", "required": true}
+        {
+          "name": "filtered_states",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "filtered_covs",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "predicted_states",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "predicted_covs",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "transition_matrices",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        }
       ],
-      "outputs": [{"name": "result", "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64]]"}]
+      "outputs": [
+        {
+          "name": "result",
+          "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64]]"
+        }
+      ],
+      "common_patterns": [
+        {
+          "pattern_id": "kalman_filter_with_smoothing",
+          "description": "Full EKF cycle with RTS backward smoother",
+          "atoms": [
+            "predict_step",
+            "update_step",
+            "rts_smooth"
+          ],
+          "ordering": "sequential",
+          "when": "Stage describes EKF with smoothing or forward-backward filtering"
+        }
+      ]
     },
     {
       "node_id": "apply_asymmetric_bias_correction",
@@ -233,11 +526,28 @@
       "type_signature": "(predictions: NDArray[np.float64], multiplier: float, condition_mask: NDArray[np.bool_]) -> NDArray[np.float64]",
       "depth": 1,
       "inputs": [
-        {"name": "predictions", "type_desc": "NDArray[np.float64]", "required": true},
-        {"name": "multiplier", "type_desc": "float", "required": true},
-        {"name": "condition_mask", "type_desc": "NDArray[np.bool_]", "required": true}
+        {
+          "name": "predictions",
+          "type_desc": "NDArray[np.float64]",
+          "required": true
+        },
+        {
+          "name": "multiplier",
+          "type_desc": "float",
+          "required": true
+        },
+        {
+          "name": "condition_mask",
+          "type_desc": "NDArray[np.bool_]",
+          "required": true
+        }
       ],
-      "outputs": [{"name": "result", "type_desc": "NDArray[np.float64]"}]
+      "outputs": [
+        {
+          "name": "result",
+          "type_desc": "NDArray[np.float64]"
+        }
+      ]
     }
   ],
   "edges": [],
