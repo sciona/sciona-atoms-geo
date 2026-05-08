@@ -10,7 +10,6 @@ Source: geopose-2021-winners/2nd Place/geopose/augmentations.py (MIT)
 
 from __future__ import annotations
 
-import cv2
 import numpy as np
 from numpy.random import Generator
 from numpy.typing import NDArray
@@ -20,16 +19,16 @@ from sciona.ghost.registry import register_atom
 
 from .witnesses import witness_gsd_aware_random_crop, witness_gsd_aware_shift_scale_rotate
 
-
 def _resize_with_scale(image: NDArray[np.generic], scale: float) -> NDArray[np.generic]:
+    import cv2
     height, width = image.shape[:2]
     new_width = max(1, int(round(width * scale)))
     new_height = max(1, int(round(height * scale)))
     interpolation = cv2.INTER_CUBIC if scale >= 1.0 else cv2.INTER_AREA
     return cv2.resize(image, (new_width, new_height), interpolation=interpolation)
 
-
 def _pad_to_minimum_size(image: NDArray[np.generic], crop_size: int) -> NDArray[np.generic]:
+    import cv2
     height, width = image.shape[:2]
     pad_y = max(0, crop_size - height)
     pad_x = max(0, crop_size - width)
@@ -41,7 +40,6 @@ def _pad_to_minimum_size(image: NDArray[np.generic], crop_size: int) -> NDArray[
     left = pad_x // 2
     right = pad_x - left
     return cv2.copyMakeBorder(image, top, bottom, left, right, borderType=cv2.BORDER_REFLECT_101)
-
 
 @register_atom(witness_gsd_aware_random_crop)
 @icontract.require(lambda image: image.ndim in (2, 3), "image must be 2-D or 3-D")
@@ -74,7 +72,6 @@ def gsd_aware_random_crop(
     left = 0 if width == crop_size else int(np.random.randint(0, width - crop_size + 1))
     return resized[top : top + crop_size, left : left + crop_size].copy()
 
-
 @register_atom(witness_gsd_aware_shift_scale_rotate)
 @icontract.require(lambda image: image.ndim in (2, 3), "image must be 2-D or 3-D")
 @icontract.require(lambda gsd: gsd > 0.0, "gsd must be positive")
@@ -97,6 +94,7 @@ def gsd_aware_shift_scale_rotate(
     rotate_limit: float,
     rng: Generator,
 ) -> tuple[NDArray[np.generic], float]:
+    import cv2
     """Apply an affine transform and propagate the updated GSD.
 
     This matches the Geopose transform semantics where image scale changes alter
