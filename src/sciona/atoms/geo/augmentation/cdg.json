@@ -27,7 +27,11 @@
       ],
       "outputs": [
         {"name": "result", "type_desc": "NDArray"}
-      ]
+      ],
+      "time_complexity": "O(H * W * (gsd / target_gsd)^2 + crop_size^2)",
+      "space_complexity": "O(H * W * (gsd / target_gsd)^2 + crop_size^2)",
+      "complexity_reasoning": "Rescaling the input image to target_gsd requires O(H * W * (gsd/target_gsd)^2) operations and memory, followed by padding and cropping to the crop_size spatial dimensions.",
+      "complexity_confidence": 100
     },
     {
       "node_id": "gsd_aware_shift_scale_rotate",
@@ -47,7 +51,11 @@
       ],
       "outputs": [
         {"name": "result", "type_desc": "tuple[NDArray, float]"}
-      ]
+      ],
+      "time_complexity": "O(H * W)",
+      "space_complexity": "O(H * W)",
+      "complexity_reasoning": "Applies an affine transformation mapping to each pixel of the H x W input image using standard linear interpolation, requiring a single pass over the image dimensions.",
+      "complexity_confidence": 100
     }
   ],
   "edges": [],

@@ -54,7 +54,11 @@
           "name": "result",
           "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]"
         }
-      ]
+      ],
+      "time_complexity": "O(n)",
+      "space_complexity": "O(n)",
+      "complexity_reasoning": "Converts geodetic coordinates to geocentric Cartesian coordinates using element-wise trigonometric and algebraic operations on n-element input arrays.",
+      "complexity_confidence": 100
     },
     {
       "node_id": "ecef_to_lla",
@@ -86,7 +90,11 @@
           "name": "result",
           "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]"
         }
-      ]
+      ],
+      "time_complexity": "O(n)",
+      "space_complexity": "O(n)",
+      "complexity_reasoning": "Computes WGS84 coordinates from Cartesian ECEF coordinates via vectorized trigonometric, root, and division operations scaling linearly with the array size n.",
+      "complexity_confidence": 100
     },
     {
       "node_id": "ecef_to_enu",
@@ -133,7 +141,11 @@
           "name": "result",
           "type_desc": "tuple[NDArray[np.float64], NDArray[np.float64], NDArray[np.float64]]"
         }
-      ]
+      ],
+      "time_complexity": "O(n)",
+      "space_complexity": "O(n)",
+      "complexity_reasoning": "Projects ECEF coordinates onto a local tangent plane using an O(1) reference point conversion followed by O(n) element-wise vector translations and rotations.",
+      "complexity_confidence": 100
     },
     {
       "node_id": "correct_clock_bias",
@@ -165,7 +177,11 @@
           "name": "result",
           "type_desc": "NDArray[np.float64]"
         }
-      ]
+      ],
+      "time_complexity": "O(n)",
+      "space_complexity": "O(n)",
+      "complexity_reasoning": "Applies receiver and satellite clock bias corrections in a single element-wise linear pass over the n-element input arrays.",
+      "complexity_confidence": 100
     },
     {
       "node_id": "filter_by_cn0",
@@ -197,7 +213,11 @@
           "name": "result",
           "type_desc": "NDArray[np.float64]"
         }
-      ]
+      ],
+      "time_complexity": "O(n)",
+      "space_complexity": "O(n)",
+      "complexity_reasoning": "Evaluates a carrier-to-noise density threshold to filter GNSS measurements in a single vectorized pass over the n-element input arrays.",
+      "complexity_confidence": 100
     },
     {
       "node_id": "filter_multipath",
@@ -229,7 +249,11 @@
           "name": "result",
           "type_desc": "NDArray[np.float64]"
         }
-      ]
+      ],
+      "time_complexity": "O(n)",
+      "space_complexity": "O(n)",
+      "complexity_reasoning": "Filters out multipath-affected measurements by performing element-wise absolute value and comparison operations across n-element arrays.",
+      "complexity_confidence": 100
     },
     {
       "node_id": "detect_steps",
@@ -279,7 +303,11 @@
           "ordering": "sequential",
           "when": "Stage describes pedestrian dead reckoning from IMU"
         }
-      ]
+      ],
+      "time_complexity": "O(n)",
+      "space_complexity": "O(n)",
+      "complexity_reasoning": "Uses peak-finding algorithms that perform a linear scan and local candidate validation over the n-element accelerometer magnitude array.",
+      "complexity_confidence": 95
     },
     {
       "node_id": "estimate_step_length_weinberg",
@@ -324,7 +352,11 @@
           "ordering": "sequential",
           "when": "Stage describes pedestrian dead reckoning from IMU"
         }
-      ]
+      ],
+      "time_complexity": "O(n)",
+      "space_complexity": "O(m)",
+      "complexity_reasoning": "Iterates through step cycles and computes max/min values over adjacent segments that partition the n-element acceleration array, leading to a linear scan overall.",
+      "complexity_confidence": 100
     },
     {
       "node_id": "integrate_heading",
@@ -356,7 +388,11 @@
           "name": "result",
           "type_desc": "NDArray[np.float64]"
         }
-      ]
+      ],
+      "time_complexity": "O(n)",
+      "space_complexity": "O(n)",
+      "complexity_reasoning": "Computes cumulative trapezoidal integration using a linear time prefix-sum (cumsum) over the n-element angular rate array.",
+      "complexity_confidence": 100
     },
     {
       "node_id": "pdr_position_update",
@@ -401,7 +437,11 @@
           "ordering": "sequential",
           "when": "Stage describes pedestrian dead reckoning from IMU"
         }
-      ]
+      ],
+      "time_complexity": "O(n)",
+      "space_complexity": "O(n)",
+      "complexity_reasoning": "Reconstructs the 2D path by performing element-wise trigonometric conversions and a cumulative sum over n-element step lists.",
+      "complexity_confidence": 100
     },
     {
       "node_id": "snap_to_nearest",
@@ -428,7 +468,11 @@
           "name": "result",
           "type_desc": "NDArray[np.float64]"
         }
-      ]
+      ],
+      "time_complexity": "O((N + M) * log(M))",
+      "space_complexity": "O(N + M)",
+      "complexity_reasoning": "Building a k-d tree from M grid nodes takes O(M log M) time and O(M) space, while querying nearest neighbors for N trajectory points takes O(N log M) time and O(N) space.",
+      "complexity_confidence": 100
     },
     {
       "node_id": "resample_to_gsd",
@@ -460,7 +504,11 @@
           "name": "result",
           "type_desc": "NDArray[np.float64]"
         }
-      ]
+      ],
+      "time_complexity": "O(H * W * (current_gsd / target_gsd)^2)",
+      "space_complexity": "O(H * W * (current_gsd / target_gsd)^2)",
+      "complexity_reasoning": "Resampling uses bilinear interpolation to map each pixel of the scaled output image, requiring time and space proportional to the output spatial dimensions.",
+      "complexity_confidence": 100
     },
     {
       "node_id": "rts_smooth",
@@ -515,7 +563,11 @@
           "ordering": "sequential",
           "when": "Stage describes EKF with smoothing or forward-backward filtering"
         }
-      ]
+      ],
+      "time_complexity": "O(T * D^3)",
+      "space_complexity": "O(T * D^2)",
+      "complexity_reasoning": "Iterates backward over T time steps, performing O(D^3) matrix multiplication and pseudo-inverse operations at each step, and storing state history of size T x D and covariance history of size T x D x D.",
+      "complexity_confidence": 100
     },
     {
       "node_id": "apply_asymmetric_bias_correction",
@@ -547,7 +599,11 @@
           "name": "result",
           "type_desc": "NDArray[np.float64]"
         }
-      ]
+      ],
+      "time_complexity": "O(n)",
+      "space_complexity": "O(n)",
+      "complexity_reasoning": "Applies an asymmetric multiplier to selected predictions based on a boolean mask in a single element-wise pass over the n-element array.",
+      "complexity_confidence": 100
     }
   ],
   "edges": [],
