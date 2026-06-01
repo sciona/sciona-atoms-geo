@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "sciona.atoms.geo.review_bundle.spatial_kd_tree.v1",
+  "provider_repo": "sciona-atoms-geo",
+  "family_batch": "geo_spatial_kd_tree",
+  "review_status": "reviewed",
+  "review_semantic_verdict": "pass",
+  "review_developer_semantic_verdict": "pass",
+  "trust_readiness": "catalog_ready",
+  "authoritative_sources": [
+    {
+      "kind": "local_wrapper",
+      "path": "src/sciona/atoms/geo/spatial/kd_tree/atoms.py"
+    },
+    {
+      "kind": "local_wrapper",
+      "path": "src/sciona/atoms/geo/spatial/kd_tree/witnesses.py"
+    },
+    {
+      "kind": "local_references",
+      "path": "src/sciona/atoms/geo/spatial/kd_tree/references.json"
+    },
+    {
+      "kind": "local_cdg",
+      "path": "src/sciona/atoms/geo/spatial/kd_tree/cdg.json"
+    }
+  ],
+  "limitations": [
+    "KD-Trees suffer from the curse of dimensionality, where query performance degrades to O(N) linear search as spatial dimension D exceeds 20. Ball-trees or approximate nearest neighbor indices should be preferred in high dimensions."
+  ],
+  "blocking_findings": [],
+  "required_actions": [],
+  "review_record_path": "data/review_bundles/geo_spatial_kd_tree.review_bundle.json",
+  "rows": [
+    {
+      "atom_key": "sciona.atoms.geo.spatial.kd_tree.build_kd_tree",
+      "atom_name": "sciona.atoms.geo.spatial.kd_tree.build_kd_tree",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass",
+      "review_developer_semantic_verdict": "pass",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/spatial/kd_tree/atoms.py",
+        "src/sciona/atoms/geo/spatial/kd_tree/witnesses.py",
+        "src/sciona/atoms/geo/spatial/kd_tree/references.json",
+        "src/sciona/atoms/geo/spatial/kd_tree/cdg.json"
+      ],
+      "limitations": [
+        "KD-tree spatial indexing requires coordinate dimension D < 20 for O(N log N) space-partitioning efficiency."
+      ],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_spatial_kd_tree.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    },
+    {
+      "atom_key": "sciona.atoms.geo.spatial.kd_tree.query_kd_tree",
+      "atom_name": "sciona.atoms.geo.spatial.kd_tree.query_kd_tree",
+      "review_status": "reviewed",
+      "review_semantic_verdict": "pass",
+      "review_developer_semantic_verdict": "pass",
+      "trust_readiness": "catalog_ready",
+      "source_paths": [
+        "src/sciona/atoms/geo/spatial/kd_tree/atoms.py",
+        "src/sciona/atoms/geo/spatial/kd_tree/witnesses.py",
+        "src/sciona/atoms/geo/spatial/kd_tree/references.json",
+        "src/sciona/atoms/geo/spatial/kd_tree/cdg.json"
+      ],
+      "limitations": [
+        "Query performance is sensitive to Minkowski norm parameter p and search dimension D."
+      ],
+      "blocking_findings": [],
+      "required_actions": [],
+      "review_record_path": "data/review_bundles/geo_spatial_kd_tree.review_bundle.json",
+      "has_references": true,
+      "references_status": "pass"
+    }
+  ]
+}

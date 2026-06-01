@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.1",
+  "atoms": {
+    "sciona.atoms.geo.spatial.kd_tree.build_kd_tree@sciona/atoms/geo/spatial/kd_tree/atoms.py:24": {
+      "references": [
+        {
+          "ref_id": "bentley_1975_kd_trees",
+          "match_metadata": {
+            "similarity_score": null,
+            "match_type": "manual",
+            "matched_nodes": [],
+            "confidence": "high",
+            "notes": "Bentley's original 1975 paper defines the k-dimensional binary search tree data structure for organizing points in k-dimensional space."
+          }
+        },
+        {
+          "ref_id": "repo_scipy_spatial",
+          "match_metadata": {
+            "similarity_score": null,
+            "match_type": "manual",
+            "matched_nodes": [],
+            "confidence": "high",
+            "notes": "Wraps the SciPy spatial KDTree index construction API."
+          }
+        }
+      ],
+      "auto_attribution_runs": []
+    },
+    "sciona.atoms.geo.spatial.kd_tree.query_kd_tree@sciona/atoms/geo/spatial/kd_tree/atoms.py:47": {
+      "references": [
+        {
+          "ref_id": "bentley_1975_kd_trees",
+          "match_metadata": {
+            "similarity_score": null,
+            "match_type": "manual",
+            "matched_nodes": [],
+            "confidence": "high",
+            "notes": " Bentley's original 1975 paper defines the query algorithm, backtracking, and hyperplanar bounding-box pruning for nearest-neighbor searches in KD-Trees."
+          }
+        },
+        {
+          "ref_id": "repo_scipy_spatial",
+          "match_metadata": {
+            "similarity_score": null,
+            "match_type": "manual",
+            "matched_nodes": [],
+            "confidence": "high",
+            "notes": "Wraps the SciPy spatial KDTree query API."
+          }
+        }
+      ],
+      "auto_attribution_runs": []
+    }
+  }
+}

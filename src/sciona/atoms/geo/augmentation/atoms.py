@@ -94,13 +94,13 @@ def gsd_aware_shift_scale_rotate(
     rotate_limit: float,
     rng: Generator,
 ) -> tuple[NDArray[np.generic], float]:
-    import cv2
     """Apply an affine transform and propagate the updated GSD.
 
     This matches the Geopose transform semantics where image scale changes alter
     the effective meters-per-pixel value. Translation and rotation preserve GSD;
     the sampled scale factor updates it multiplicatively.
     """
+    import cv2
     image = np.asarray(image)
     height, width = image.shape[:2]
 
