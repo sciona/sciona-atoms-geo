@@ -158,7 +158,7 @@ def test_loss_atom_leaf_names_are_registered() -> None:
     registered = {name for name in REGISTRY if not name.startswith("witness_")}
     for fqdn in EXPECTED_FQDNS:
         leaf = fqdn.removeprefix("sciona.atoms.geo.losses.")
-        assert leaf in registered
+        assert f"sciona.atoms.geo.losses.atoms.{leaf}" in registered
 
 
 def test_loss_review_bundle_exists_and_lists_expected_atoms() -> None:

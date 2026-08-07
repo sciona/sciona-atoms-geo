@@ -164,4 +164,5 @@ def test_geospatial_sensors_atoms_are_registered() -> None:
     import_module("sciona.atoms.geo.geospatial_sensors.atoms")
     registered = {name for name in REGISTRY if not name.startswith("witness_")}
     for fqdn in EXPECTED_FQDNS:
-        assert fqdn.rsplit(".", 1)[-1] in registered
+        leaf = fqdn.rsplit(".", 1)[-1]
+        assert f"sciona.atoms.geo.geospatial_sensors.atoms.{leaf}" in registered

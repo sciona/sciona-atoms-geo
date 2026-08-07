@@ -149,7 +149,7 @@ def test_augmentation_atom_leaf_names_are_registered() -> None:
     registered = {name for name in REGISTRY if not name.startswith("witness_")}
     for fqdn in EXPECTED_FQDNS:
         leaf = fqdn.removeprefix("sciona.atoms.geo.augmentation.")
-        assert leaf in registered
+        assert f"sciona.atoms.geo.augmentation.atoms.{leaf}" in registered
 
 
 def test_augmentation_review_bundle_exists_and_lists_expected_atoms() -> None:
